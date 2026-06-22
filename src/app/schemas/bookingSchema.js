@@ -16,7 +16,9 @@ export const createBookingSchema = (availableTimeSlots = []) => {
       .int()
       .min(1)
       .max(10, { message: 'Number of Guests must be less than or equal to 10' }),
-    timeSlot: z.enum(slots, { errorMap: () => ({ message: 'Selected time slot is unavailable' }) }),
+    timeSlot: z.enum(slots, {
+      errorMap: () => ({ message: 'Selected time slot is unavailable' })
+    }),
     eventLink: z.string().url({ message: 'Invalid URL. Please enter a valid event link' })
   });
 };
